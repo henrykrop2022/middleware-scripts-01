@@ -2,20 +2,14 @@
     agent any
 
     stages{
-        stage("build"){
+        stage("create zip file"){
             steps{
-                echo "build"
+                scrips{
+                    zip middleware-scripts-01-${BUILD_NUMBER}.zip * --exclude Jenkinsfile README.md
+                }
+               
             }
         }
-        stage("test"){
-            steps{
-                echo "test"
-            }
-        }
-        stage("deploy"){
-            steps{
-                echo "deploy"
-            }
-        }
+        
     }
 }
